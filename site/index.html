@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Offline Saver — save videos, PDFs and notes before your data runs out</title>
+<meta name="description" content="Save videos, PDFs, photos, audio and articles on your phone while you have internet. Open them later with zero data. No account, nothing leaves your phone.">
+<meta property="og:title" content="Offline Saver">
+<meta property="og:description" content="Save it while the net lasts. Watch and read it later with zero data.">
+<meta property="og:image" content="https://offline-saver.sites.tab.bot/og.png">
+<meta name="theme-color" content="#14213D">
+<link rel="manifest" href="manifest.webmanifest?v=3">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="app.css?v=3">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><img src="icon-192.png" alt="" width="34" height="34"><span>Offline Saver</span></div>
+  <span id="net" class="net">…</span>
+</header>
+
+<main>
+<section id="tab-save" class="tab" aria-label="Save">
+  <div class="meter">
+    <p class="big"><span id="usedBig">0 MB</span> saved</p>
+    <p class="sub" id="meterSub">Checking phone storage…</p>
+    <div class="bar"><i id="barFill"></i></div>
+    <p class="sub" id="persistLine"></p>
+  </div>
+
+  <p class="lead">Net khatam hone se pehle save karo. Baad mein bina data ke dekho.</p>
+
+  <label class="action primary" for="filePick">
+    <b>Pick from phone</b>
+    <small>Videos, PDFs, photos, audio — any file</small>
+  </label>
+  <input id="filePick" type="file" multiple hidden>
+
+  <form id="linkForm" class="card">
+    <b>Save a web page by link</b>
+    <small>Works for pages that allow it. If a site blocks it, open the page, copy the text and paste it below.</small>
+    <div class="row"><input id="linkIn" type="url" inputmode="url" placeholder="https://…" required><button>Save</button></div>
+    <p id="linkMsg" class="msg" role="status"></p>
+  </form>
+
+  <form id="noteForm" class="card">
+    <b>Paste an article or write a note</b>
+    <input id="noteTitle" placeholder="Title (optional)">
+    <textarea id="noteText" rows="5" placeholder="Paste text here…" required></textarea>
+    <button>Save note</button>
+  </form>
+
+  <div class="card hint">
+    <b>Save from other apps</b>
+    <small id="shareHint">Install this app (menu ⋮ → “Install app” / “Add to Home screen”). Then in Gallery, Files or Chrome tap Share → Offline Saver.</small>
+    <button id="installBtn" hidden>Install app</button>
+  </div>
+  <p class="fine">No account, no server. Everything you save stays on this phone only.</p>
+</section>
+
+<section id="tab-lib" class="tab" aria-label="Library" hidden>
+  <input id="q" type="search" placeholder="Search your saved stuff">
+  <div class="chips" id="chips">
+    <button data-k="all" class="on">All</button><button data-k="video">Videos</button><button data-k="audio">Audio</button><button data-k="pdf">PDF</button><button data-k="image">Photos</button><button data-k="text">Notes</button><button data-k="other">Other</button>
+  </div>
+  <p class="sub" id="libSum"></p>
+  <ul id="list" class="list"></ul>
+  <p id="empty" class="emptyMsg" hidden>Nothing saved yet. Go to Save and pick a video or PDF.</p>
+</section>
+</main>
+
+<nav class="nav">
+  <button data-t="save" class="on">Save</button>
+  <button data-t="lib">Library <span id="count"></span></button>
+</nav>
+
+<div id="viewer" class="viewer" hidden>
+  <div class="vbar"><button id="vClose" aria-label="Close">✕</button><span id="vTitle"></span></div>
+  <div id="vBody" class="vbody"></div>
+</div>
+<div id="toast" class="toast" role="status"></div>
+<script src="db.js?v=3"></script>
+<script src="app.js?v=3"></script>
+</body>
+</html>
