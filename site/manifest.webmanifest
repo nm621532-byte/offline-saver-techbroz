@@ -1,0 +1,48 @@
+{
+ "name": "Offline Saver",
+ "short_name": "Offline Saver",
+ "description": "Save videos, PDFs, photos, audio and articles while you have internet; open them later with zero data.",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "orientation": "portrait",
+ "background_color": "#F3F6FA",
+ "theme_color": "#14213D",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any maskable"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ],
+ "share_target": {
+  "action": "./share",
+  "method": "POST",
+  "enctype": "multipart/form-data",
+  "params": {
+   "title": "title",
+   "text": "text",
+   "url": "url",
+   "files": [
+    {
+     "name": "files",
+     "accept": [
+      "video/*",
+      "audio/*",
+      "image/*",
+      "application/pdf",
+      "text/*",
+      "*/*"
+     ]
+    }
+   ]
+  }
+ }
+}
