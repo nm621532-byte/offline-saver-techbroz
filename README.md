@@ -44,4 +44,4 @@ Release **v1.0** mein poora source zip hai: https://github.com/nm621532-byte/off
 ---
 Bana hai **Tech Bro Z** ke liye 💻 — YouTube: [@techbrozdeveloper](https://www.youtube.com/@techbrozdeveloper) · Instagram: [@tech_bro_z_1](https://www.instagram.com/tech_bro_z_1/)
 
-License: MIT
+License: MIT (code). Font: Bricolage Grotesque, SIL Open Font License 1.1.
